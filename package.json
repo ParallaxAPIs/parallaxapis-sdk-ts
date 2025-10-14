@@ -1,0 +1,31 @@
+{
+  "name": "parallax-sdk-ts",
+  "description": "Parallax APIs sdk https://www.parallaxsystems.io/",
+  "homepage": "https://www.parallaxsystems.io/",
+  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "perimeterx",
+    "web scraping",
+    "datadome",
+    "crawlers"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/got": "^9.6.12",
+    "got": "^14.4.7",
+    "undici": "^7.16.0"
+  }
+}
