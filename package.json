@@ -1,27 +1,19 @@
 {
-  "name": "@parallaxsystems/sdk-ts",
+  "name": "parallaxapis-sdk-ts",
   "version": "1.0.0",
-  "license": "MIT",
+  "description": "ParallaxAPIs SDK",
+  "homepage": "https://www.parallaxsystems.io/join?s=npm",
   "repository": "https://github.com/ParallaxAPIs/parallax-sdk-ts",
-  "author": "Parallax Systems <info@parallaxsystems.io>",
-  "publishConfig": {
-    "access": "public"
-  },
-  "description": "Parallax APIs sdk https://www.parallaxsystems.io/",
-  "homepage": "https://www.parallaxsystems.io/",
-  "module": "./dist/index.mjs",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "author": "ParallaxSystems <info@parallaxsystems.io>",
+  "license": "MIT",
   "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "files": ["src", "README.md", "LICENSE"],
   "scripts": {
     "build": "tsup"
   },
-  "keywords": [
-    "perimeterx",
-    "web scraping",
-    "datadome",
-    "crawlers"
-  ],
+  "keywords": ["perimeterx","web scraping","datadome","crawlers"],
   "devDependencies": {
     "@types/bun": "latest",
     "tsup": "^8.5.0",
@@ -34,5 +26,6 @@
     "@types/got": "^9.6.12",
     "got": "^14.4.7",
     "undici": "^7.16.0"
-  }
+  },
+  "publishConfig": { "access": "public" }
 }
