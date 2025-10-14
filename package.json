@@ -1,5 +1,12 @@
 {
-  "name": "parallax-sdk-ts",
+  "name": "@parallaxsystems/sdk-ts",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/ParallaxAPIs/parallax-sdk-ts",
+  "author": "Parallax Systems <info@parallaxsystems.io>",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Parallax APIs sdk https://www.parallaxsystems.io/",
   "homepage": "https://www.parallaxsystems.io/",
   "module": "./dist/index.mjs",
