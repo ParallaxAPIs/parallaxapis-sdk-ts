@@ -1,4 +1,4 @@
-export type ProxyAddress = `http://${string}`;
+export type ProxyAddress = `${'http'|'https'|'socks'|'socks5'|'socks5h'}://${string}`
 
 /**
  * Enum for DataDome product types.
