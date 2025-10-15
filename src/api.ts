@@ -43,12 +43,12 @@ export class ApiClient {
             throwOnError: false,
         })
 
-        if (res.statusCode != 200) throw new Error(`Unexpected status code returned from parallax api: ${res.statusCode}`);
+        if (res.statusCode != 200) throw new Error(`Unexpected status code returned from parallax api:\n ${res.body}`);
 
         const resBody = await res.body.json() as T;
 
         if (resBody.error) {
-            if (!resBody.message) resBody.message = resBody.cookie;
+            if (!resBody.message) resBody.message = resBody.cookie;//dd px system mismatch, needs to be update in future
             throw new Error(`Api responded with error, error message: ${resBody.message}`)
         };
 
