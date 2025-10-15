@@ -7,7 +7,7 @@ import { type TaskGenerateHoldCaptcha, type TaskGeneratePXCookies } from "./task
 export class PerimeterxSDK extends ApiClient {
     /**
      * Creates an instance of PerimeterxSDK.
-     * Sets the API host to the default if not provided in the config and encodes the API key.
+     * Sets the API host to the default if not provided in the config.
      *
      * @param cfg Configuration object for the SDK, containing apiKey and optionally apiHost.
      */
