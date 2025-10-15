@@ -2,7 +2,6 @@ import { request } from 'undici';
 import type { ApiClientConfig } from './config';
 import type { GenericResponse, ResponseGetUsage } from './responses';
 import type { GenericTask } from './tasks';
-import { decodeKey } from './utils';
 
 export type Endpoint = `/${string}`;
 
@@ -63,7 +62,7 @@ export class ApiClient {
      * @returns A promise resolving to the usage response.
      */
     public async checkUsage(site: string): Promise<ResponseGetUsage> {
-        const res = await request(`https://${this.apiHost}/usage?authToken=${decodeKey(this.apiKey)}&site=${site}`, {
+        const res = await request(`https://${this.apiHost}/usage?authToken=${this.apiKey}&site=${site}`, {
             throwOnError: false
         });
 

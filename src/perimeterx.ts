@@ -3,7 +3,6 @@ import type { ClientSDKConfig, ApiClientConfig } from "./config";
 import { DEFAULT_PX_API_HOST } from "./constants";
 import type { GenerateHoldCaptchaResponse, GeneratePxCookiesResponse } from "./responses";
 import { type TaskGenerateHoldCaptcha, type TaskGeneratePXCookies } from "./tasks";
-import { encodeKey } from "./utils";
 
 export class PerimeterxSDK extends ApiClient {
     /**
@@ -17,7 +16,7 @@ export class PerimeterxSDK extends ApiClient {
 
         super({
             apiHost: cfg.apiHost,
-            apiKey: encodeKey(cfg.apiKey),
+            apiKey: cfg.apiKey,
         } satisfies ApiClientConfig);
     }
 
