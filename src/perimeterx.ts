@@ -1,5 +1,5 @@
 import { ApiClient } from "./api";
-import type { ClientSDKConfig, ApiClientConfig } from "./config";
+import type { ApiClientConfig, ClientSDKConfig } from "./config";
 import { DEFAULT_PX_API_HOST } from "./constants";
 import type { GenerateHoldCaptchaResponse, GeneratePxCookiesResponse } from "./responses";
 import { type TaskGenerateHoldCaptcha, type TaskGeneratePXCookies } from "./tasks";

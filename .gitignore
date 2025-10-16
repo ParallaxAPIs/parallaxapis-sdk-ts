@@ -1,7 +1,10 @@
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 
+<<<<<<< HEAD
 .npmignore
 
+=======
+>>>>>>> 628bdf1 (feat: added handling of datadome tags solving with more elegant function)
 # Logs
 
 logs

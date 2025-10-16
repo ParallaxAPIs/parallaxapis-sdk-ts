@@ -1,4 +1,4 @@
-export type ProxyAddress = `${'http'|'https'|'socks'|'socks5'|'socks5h'}://${string}`
+export type ProxyAddress = `${'http' | 'https' | 'socks' | 'socks5' | 'socks5h'}://${string}`
 
 /**
  * Enum for DataDome product types.
@@ -48,6 +48,24 @@ export type TaskGenerateDatadomeCookieData = {
     b: string,
     initialCid: string
 }
+
+/**
+ * Task for generating a DataDome tags cookie cookie.
+ * @property site - Site for which to generate the cookie.
+ * @property region - Site region.
+ * @property proxyregion - Proxy region.
+ * @property proxy - Proxy address.
+ * @property pd - Product type.
+ * @property data - Data required for cookie generation, only cid value with null is needed.
+ */
+export type TaskGenerateDatadomeTags = {
+    site: string
+    region: string
+    proxyregion: string,
+    proxy: ProxyAddress,
+    pd: ProductType,
+    data: Pick<TaskGenerateDatadomeCookieData, "cid">
+};
 
 /**
  * Task for generating a DataDome cookie.

@@ -1,9 +1,9 @@
 import { ApiClient } from "./api";
-import type { ClientSDKConfig, ApiClientConfig } from "./config";
+import type { ApiClientConfig, ClientSDKConfig } from "./config";
 import { DEFAULT_DATADOME_API_HOST } from "./constants";
 import type { HtmlDatadomeBlockBody, JSONDatadomeBlockBody } from "./datadome-entities";
 import type { GenerateDatadomeCookieResponse, GenerateUserAgentResponse } from "./responses";
-import { ProductType, type TaskGenerateDatadomeCookie, type TaskGenerateDatadomeCookieData, type TaskGenerateUserAgent } from "./tasks";
+import { ProductType, type TaskGenerateDatadomeCookie, type TaskGenerateDatadomeCookieData, type TaskGenerateDatadomeTags, type TaskGenerateUserAgent } from "./tasks";
 
 // Datadome block url regexp
 const datadomeBlockUrlRe = /geo\.captcha\-delivery\.com\/(?:interstitial|captcha)/;
@@ -93,6 +93,17 @@ export class DatadomeSDK extends ApiClient {
         resultTouple[0] = taskData;
 
         return resultTouple;
+    }
+
+    /**
+    * Parses a DataDome challenge URL and extracts the challenge data and product type.
+    *
+    * @param task Tags task.
+    * @returns A tuple containing the parsed challenge data and the product type.
+    * @throws Error if the challenge type in the URL is unknown.
+    */
+    public async generateDatadomeTagsCookie(task: TaskGenerateDatadomeTags): Promise<GenerateDatadomeCookieResponse> {
+        return await this.request("/gen", task);
     }
 
     /**

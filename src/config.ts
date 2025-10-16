@@ -1,6 +1,12 @@
+import type { Dispatcher } from "undici";
+
 export type ApiClientConfig = {
     apiKey: string
     apiHost: string
+
+    timeout?: number
+    bodyTimeout?: number
+    dispatcher?: Dispatcher
 };
 
 /**
