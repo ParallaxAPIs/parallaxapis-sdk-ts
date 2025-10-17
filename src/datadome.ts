@@ -107,8 +107,8 @@ export class DatadomeSDK extends ApiClient {
             ...task,
             pd: ProductType.Init,
             data: {
-                ...task.data,
-                b: "", e: "", initialCid: "", s: "", cid: ""
+                cid: task.data.cid,
+                b: "", e: "", initialCid: "", s: ""
             },
         } satisfies TaskGenerateDatadomeCookie);
     }
