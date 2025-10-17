@@ -103,7 +103,14 @@ export class DatadomeSDK extends ApiClient {
     * @throws Error if the challenge type in the URL is unknown.
     */
     public async generateDatadomeTagsCookie(task: TaskGenerateDatadomeTags): Promise<GenerateDatadomeCookieResponse> {
-        return await this.request("/gen", task);
+        return await this.request("/gen", {
+            ...task,
+            pd: ProductType.Init,
+            data: {
+                ...task.data,
+                b: "", e: "", initialCid: "", s: "", cid: ""
+            },
+        } satisfies TaskGenerateDatadomeCookie);
     }
 
     /**

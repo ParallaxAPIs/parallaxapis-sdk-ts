@@ -63,7 +63,6 @@ export type TaskGenerateDatadomeTags = {
     region: string
     proxyregion: string,
     proxy: ProxyAddress,
-    pd: ProductType,
     data: Pick<TaskGenerateDatadomeCookieData, "cid">
 };
 
