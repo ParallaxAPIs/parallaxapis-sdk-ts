@@ -1,6 +1,17 @@
 # 🚀 Parallax SDK: Datadome & Perimeterx
 
-Easily interact with Datadome and Perimeterx anti-bot solutions using a simple TypeScript SDK. Fast integration, clear API! ✨
+**Modern TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
+
+Designed for Node.js and TypeScript developers who value type safety and developer experience. This SDK provides full TypeScript support with intelligent autocomplete, type inference, and compile-time safety checks.
+
+## ✨ Why Choose the TypeScript SDK?
+
+- **🎯 Full Type Safety**: Complete TypeScript definitions with strict typing and IntelliSense support
+- **⚡ Modern async/await**: Promise-based API built on native fetch and undici for optimal performance
+- **🔧 Developer-Friendly**: Intuitive API design with helpful error messages and validation
+- **🌐 Node.js Optimized**: Built specifically for Node.js environments with ESM support
+- **📦 Lightweight**: Minimal dependencies with tree-shaking support
+- **🛠️ Flexible Configuration**: Custom timeout, proxy support via undici dispatcher, and more
 
 ---
 
