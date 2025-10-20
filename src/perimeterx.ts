@@ -15,8 +15,8 @@ export class PerimeterxSDK extends ApiClient {
         if (!cfg?.apiHost) cfg.apiHost = DEFAULT_PX_API_HOST;
 
         super({
-            apiHost: cfg.apiHost,
-            apiKey: cfg.apiKey,
+            ...cfg,
+            apiHost: cfg.apiHost
         } satisfies ApiClientConfig);
     }
 

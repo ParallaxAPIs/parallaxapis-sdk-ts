@@ -8,6 +8,7 @@ export type Endpoint = `/${string}`;
 export class ApiClient {
     private apiHost = "";
     private apiKey = "";
+    private requestOptions: Parameters<typeof request>[1];
 
     /**
      * Creates an instance of a Client.
@@ -16,6 +17,12 @@ export class ApiClient {
     constructor(cfg: ApiClientConfig) {
         this.apiHost = cfg.apiHost;
         this.apiKey = cfg.apiKey;
+
+        this.requestOptions = {};
+
+        if (cfg.timeout) this.requestOptions.headersTimeout = cfg.timeout;
+        if (cfg.bodyTimeout) this.requestOptions.bodyTimeout = cfg.bodyTimeout;
+        if (cfg.dispatcher) this.requestOptions.dispatcher = cfg.dispatcher;
     }
 
     /**
@@ -36,12 +43,15 @@ export class ApiClient {
             ...body
         }
 
-        const res = await request(url, {
+        const options = {
+            ...this.requestOptions,
             method: "POST",
             body: JSON.stringify(payload),
             headers: { "content-type": "application/json" },
             throwOnError: false,
-        })
+        }
+
+        const res = await request(url, options);
 
         if (res.statusCode != 200) throw new Error(`Unexpected status code returned from parallax api:\n ${res.body}`);
 

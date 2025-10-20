@@ -31,8 +31,8 @@ export class DatadomeSDK extends ApiClient {
         if (!cfg?.apiHost) cfg.apiHost = DEFAULT_DATADOME_API_HOST;
 
         super({
-            apiHost: cfg.apiHost,
-            apiKey: cfg.apiKey,
+            ...cfg,
+            apiHost: cfg.apiHost
         } satisfies ApiClientConfig);
     }
 

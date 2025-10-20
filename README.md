@@ -24,6 +24,16 @@ const sdk = new DatadomeSDK({ apiKey: "key" });
 
 // Custom host
 const sdk = new DatadomeSDK({ apiKey: "key", apiHost: "example.host.com" });
+
+// Advanced configuration with timeouts and custom dispatcher
+import { ProxyAgent } from "undici";
+
+const sdk = new DatadomeSDK({
+    apiKey: "key",
+    timeout: 30000,              // Request timeout in milliseconds (default: none) (optional)
+    bodyTimeout: 10000,          // Body timeout in milliseconds (default: none) (optional)
+    dispatcher: new ProxyAgent("http://proxy:port")  // Custom undici dispatcher (optional)
+});
 ```
 
 ### 🕵️‍♂️ Generate New User Agent
@@ -111,6 +121,84 @@ console.log(cookie);
 */
 ```
 
+### 🏷️ Generate Datadome Tags Cookie
+
+```javascript
+import DatadomeSDK from "parallax-sdk-ts";
+
+const sdk = new DatadomeSDK({ apiKey: "key" });
+
+const cookie = await sdk.generateDatadomeTagsCookie({
+    site: "vinted",
+    region: "pl",
+    data: {
+        cid: "null"
+    },
+    proxy: "http://user:pas@addr:port",
+    proxyregion: "eu"
+});
+
+console.log(cookie);
+
+/*
+   {
+        error: false,
+        message: "datadome=cookie_value",
+        UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+    }
+*/
+```
+
+### 📄 Parse HTML Challenge
+
+```javascript
+import DatadomeSDK from "parallax-sdk-ts";
+
+const sdk = new DatadomeSDK({ apiKey: "key" });
+
+const htmlBody = `<html>... dd={'cid':'abc123','s':12345,'e':'error','t':'fe'} ...</html>`;
+const prevCookie = "old_cookie_value";
+
+const [taskData, productType] = sdk.parseChallengeHtml(htmlBody, prevCookie);
+
+console.log(taskData, productType);
+
+/*
+    {
+        cid: "old_cookie_value",
+        b: "",
+        e: "error",
+        s: "12345",
+        initialCid: "abc123",
+    } captcha
+*/
+```
+
+### 🔎 Detect and Parse Challenge
+
+```javascript
+import DatadomeSDK from "parallax-sdk-ts";
+
+const sdk = new DatadomeSDK({ apiKey: "key" });
+
+const responseBody = `<html>... dd={'cid':'abc123','s':12345,'e':'error','t':'fe'} ...</html>`;
+const prevCookie = "old_cookie_value";
+
+const [isBlocked, taskData, productType] = sdk.detectChallengeAndParse(responseBody, prevCookie);
+
+console.log(isBlocked, taskData, productType);
+
+/*
+    true {
+        cid: "old_cookie_value",
+        b: "",
+        e: "error",
+        s: "12345",
+        initialCid: "abc123",
+    } captcha
+*/
+```
+
 ---
 
 ## 🛡️ Perimeterx Usage
@@ -125,6 +213,16 @@ const sdk = new PerimeterxSDK({ apiKey: "key" });
 
 // Custom host
 const sdk = new PerimeterxSDK({ apiKey: "key", apiHost: "example.host.com" });
+
+// Advanced configuration with timeouts and custom dispatcher
+import { ProxyAgent } from "undici";
+
+const sdk = new PerimeterxSDK({
+    apiKey: "key",
+    timeout: 30000,              // Request timeout in milliseconds (default: none)
+    bodyTimeout: 10000,          // Body timeout in milliseconds (default: none)
+    dispatcher: new ProxyAgent("http://proxy:port")  // Custom undici dispatcher (optional)
+});
 ```
 
 ### 🍪 Generate PX Cookie
