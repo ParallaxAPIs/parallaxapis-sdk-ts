@@ -31,10 +31,10 @@ export class PerimeterxSDK extends ApiClient {
     }
 
     /**
-     * Generates a hold captcha response using the provided task parameters.
+     * Generates a holdcaptcha response using the provided task parameters.
      *
-     * @param task The task object containing parameters for hold captcha generation.
-     * @returns A promise resolving to the generated hold captcha response.
+     * @param task The task object containing parameters for holdcaptcha generation.
+     * @returns A promise resolving to the generated holdcaptcha response.
      */
     public async generateHoldCaptcha(task: TaskGenerateHoldCaptcha): Promise<GenerateHoldCaptchaResponse> {
         return await this.request("/holdcaptcha", task);

@@ -25,16 +25,6 @@ export class ApiClient {
         if (cfg.dispatcher) this.requestOptions.dispatcher = cfg.dispatcher;
     }
 
-    /**
-     * Sends a POST request to the specified API endpoint with the provided payload.
-     *
-     * @template T The expected response type.
-     * @template TBody The request body type.
-     * @param endpoint The API endpoint to send the request to.
-     * @param body The request body payload.
-     * @returns A promise resolving to the API response.
-     * @throws Error if the API responds with an error.
-     */
     protected async request<T extends GenericResponse<{}>, TBody>(endpoint: Endpoint, body: TBody): Promise<T> {
         const url = `https://${this.apiHost}${endpoint}`;
 

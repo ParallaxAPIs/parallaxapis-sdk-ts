@@ -38,9 +38,6 @@ export class DatadomeSDK extends ApiClient {
 
     /**
      * Generates a user agent data.
-     *
-     * @param task The task object containing parameters for user agent generation.
-     * @returns A promise resolving to the generated user agent response.
      */
     public async generateUserAgent(task: TaskGenerateUserAgent): Promise<GenerateUserAgentResponse> {
         return await this.request("/useragent", task);
@@ -48,9 +45,6 @@ export class DatadomeSDK extends ApiClient {
 
     /**
      * Generates a DataDome cookie using the provided task parameters.
-     *
-     * @param task The task object containing parameters for cookie generation.
-     * @returns A promise resolving to the generated DataDome cookie response.
      */
     public async generateCookie(task: TaskGenerateDatadomeCookie): Promise<GenerateDatadomeCookieResponse> {
         return await this.request("/gen", task);
@@ -58,11 +52,6 @@ export class DatadomeSDK extends ApiClient {
 
     /**
      * Parses a DataDome challenge URL and extracts the challenge data and product type.
-     *
-     * @param challengeUrl The challenge URL to parse.
-     * @param prevDatadomeCookie The previous DataDome cookie value.
-     * @returns A tuple containing the parsed challenge data and the product type.
-     * @throws Error if the challenge type in the URL is unknown.
      */
     public parseChallengeUrl(challengeUrl: string, prevDatadomeCookie: string): [TaskGenerateDatadomeCookieData, ProductType] {
         const url = new URL(challengeUrl);
@@ -97,10 +86,6 @@ export class DatadomeSDK extends ApiClient {
 
     /**
     * Parses a DataDome challenge URL and extracts the challenge data and product type.
-    *
-    * @param task Tags task.
-    * @returns A tuple containing the parsed challenge data and the product type.
-    * @throws Error if the challenge type in the URL is unknown.
     */
     public async generateDatadomeTagsCookie(task: TaskGenerateDatadomeTags): Promise<GenerateDatadomeCookieResponse> {
         return await this.request("/gen", {
