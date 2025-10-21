@@ -1,4 +1,4 @@
-# 🚀 Parallax SDK: Datadome & Perimeterx
+# 🚀 ParallaxAPIs SDK: Datadome & Perimeterx
 
 **Modern TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
 
@@ -30,7 +30,7 @@ Get started with ParallaxAPIs SDK's in under 5 minutes:
 ## 📦 Installation
 
 ```bash
-npm install parallax-sdk-ts
+npm install parallaxapis-sdk-ts
 ```
 
 ---
@@ -40,7 +40,7 @@ npm install parallax-sdk-ts
 ### ⚡ SDK Initialization
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 // Basic initialization with API key
 const sdk = new DatadomeSDK({ apiKey: "key" });
@@ -62,7 +62,7 @@ const sdk = new DatadomeSDK({
 ### 🕵️‍♂️ Generate New User Agent
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "key" });
 
@@ -90,7 +90,7 @@ console.log(userAgent)
 ### 🔍 Get Task Data
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "key" });
 
@@ -115,7 +115,7 @@ console.log(taskData, productType)
 ### 🍪 Generate Cookie
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "key" });
 
@@ -147,7 +147,7 @@ console.log(cookie);
 ### 🏷️ Generate Datadome Tags Cookie
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "key" });
 
@@ -175,7 +175,7 @@ console.log(cookie);
 ### 📄 Parse HTML Challenge
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "key" });
 
@@ -200,7 +200,7 @@ console.log(taskData, productType);
 ### 🔎 Detect and Parse Challenge
 
 ```javascript
-import DatadomeSDK from "parallax-sdk-ts";
+import DatadomeSDK from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "key" });
 
@@ -229,7 +229,7 @@ console.log(isBlocked, taskData, productType);
 ### ⚡ SDK Initialization
 
 ```javascript
-import PerimeterxSDK from "parallax-sdk-ts";
+import PerimeterxSDK from "parallaxapis-sdk-ts";
 
 // Basic initialization with API key
 const sdk = new PerimeterxSDK({ apiKey: "key" });
@@ -251,8 +251,8 @@ const sdk = new PerimeterxSDK({
 ### 🍪 Generate PX Cookie
 
 ```javascript
-import PerimeterxSDK from "parallax-sdk-ts";
-import type { TaskGenerateHoldCaptcha, TaskGeneratePXCookies } from "parallax-sdk-ts";
+import PerimeterxSDK from "parallaxapis-sdk-ts";
+import type { TaskGenerateHoldCaptcha, TaskGeneratePXCookies } from "parallaxapis-sdk-ts";
 
 const sdk = new PerimeterxSDK({
     apiKey: "key",
