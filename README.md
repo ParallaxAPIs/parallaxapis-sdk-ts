@@ -1,17 +1,21 @@
 # 🚀 ParallaxAPIs SDK: Datadome & Perimeterx
 
-**Modern TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
+**TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
 
-Designed for Node.js and TypeScript developers who value type safety and developer experience. This SDK provides full TypeScript support with intelligent autocomplete, type inference, and compile-time safety checks.
+## 📖 About Parallax API
 
-## ✨ Why Choose the TypeScript SDK?
+ParallaxAPIs provides a **request-based solution** for bypassing DataDome and PerimeterX anti-bot systems. Instead of relying on slow, resource-heavy browser automation, our API generates valid cookies and tokens in **200-400ms** through direct HTTP requests.
 
-- **🎯 Full Type Safety**: Complete TypeScript definitions with strict typing and IntelliSense support
-- **⚡ Modern async/await**: Promise-based API built on native fetch and undici for optimal performance
-- **🔧 Developer-Friendly**: Intuitive API design with helpful error messages and validation
-- **🌐 Node.js Optimized**: Built specifically for Node.js environments with ESM support
-- **📦 Lightweight**: Minimal dependencies with tree-shaking support
-- **🛠️ Flexible Configuration**: Custom timeout, proxy support via undici dispatcher, and more
+**What We Solve:**
+- ✅ **DataDome** - Slider captchas, interstitial pages, cookie generation, tags payload
+- ✅ **PerimeterX** - Cookie generation (_px3), challenge solver, vid & cts tokens
+
+**Key Benefits:**
+- ⚡ **Lightning Fast** - 200-400ms response times vs 2-5+ seconds for browsers
+- 🔧 **Simple Integration** - Clean API, no browser management required
+- 🚀 **Highly Scalable** - Handle thousands of concurrent requests with minimal resources
+- 💰 **Cost Effective** - Lightweight infrastructure, minimal proxy usage
+- 🔄 **Always Updated** - We handle all reverse engineering and updates for you
 
 ---
 
