@@ -311,23 +311,27 @@ console.log(JSON.stringify(holdCaptchaResult))
 
 ## 📚 Documentation & Help
 
-- Full API docs: [GitHub](https://github.com/parallaxsystems/parallax-sdk-ts)
-- Issues & support: [GitHub Issues](https://github.com/parallaxsystems/parallax-sdk-ts/issues)
+- Full API docs & support: [Discord](https://www.parallaxsystems.io/join?s=gh)
 
----
+
+
+## 🌟 Contributing
+
+Got feedback or found a bug? Feel free to open an issue or send us a pull request!
+
+
 
 ## 🏢 Enterprise
 
-Unlock enterprise-grade performance with custom solutions, expanded limits, and expert support. Contact us to learn more.
+Unlock enterprise-grade performance with custom solutions, expanded limits, and expert support. [Contact us](https://www.parallaxsystems.io/join?s=gh) to learn more.
 
----
+
 
 ## 📝 License
 
 MIT
 
 ---
-
 ## 🔑 Keywords
 
 **DataDome bypass** • **PerimeterX bypass** • **Anti-bot bypass** • **Bot detection bypass** • **CAPTCHA solver** • **Cookie generator** • **TypeScript web scraping** • **JavaScript bot automation** • **Node.js anti-bot** • **DataDome TypeScript SDK** • **PerimeterX TypeScript SDK** • **Headless browser alternative** • **Request-based bypass** • **TypeScript automation** • **Web scraping TypeScript** • **Bot mitigation bypass** • **Sensor data generation** • **Challenge solver** • **npm anti-bot**
