@@ -1,4 +1,4 @@
-# 🚀 ParallaxAPIs SDK: Datadome & Perimeterx
+# 🚀 ParallaxAPIs TypeScript SDK: Datadome & Perimeterx
 
 **TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
 
