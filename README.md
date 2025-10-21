@@ -43,16 +43,16 @@ npm install parallaxapis-sdk-ts
 import DatadomeSDK from "parallaxapis-sdk-ts";
 
 // Basic initialization with API key
-const sdk = new DatadomeSDK({ apiKey: "key" });
+const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 // Custom host
-const sdk = new DatadomeSDK({ apiKey: "key", apiHost: "example.host.com" });
+const sdk = new DatadomeSDK({ apiKey: "Key", apiHost: "example.host.com" });
 
 // Advanced configuration with timeouts and custom dispatcher
 import { ProxyAgent } from "undici";
 
 const sdk = new DatadomeSDK({
-    apiKey: "key",
+    apiKey: "Key",
     timeout: 30000,              // Request timeout in milliseconds (default: none) (optional)
     bodyTimeout: 10000,          // Body timeout in milliseconds (default: none) (optional)
     dispatcher: new ProxyAgent("http://proxy:port")  // Custom undici dispatcher (optional)
@@ -64,27 +64,14 @@ const sdk = new DatadomeSDK({
 ```javascript
 import DatadomeSDK from "parallaxapis-sdk-ts";
 
-const sdk = new DatadomeSDK({ apiKey: "key" });
+const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 const userAgent = await sdk.generateUserAgent({
-    region: "pl",
-    site: "vinted",
-    pd: "optional"
+    region: "com",
+    site: "site"
 });
 
 console.log(userAgent)
-
-/*
-    {
-        error: false,
-        message: "New device successfully created.",
-        UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-        secHeader: "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
-        secFullVersionList: "\"Chromium\";v=\"136.0.0.0\", \"Google Chrome\";v=\"136.0.0.0\", \"Not.A/Brand\";v=\"99.0.0.0\"",
-        secPlatform: "\"Windows\"",
-        secArch: "\"x86\"",
-    }
-*/
 ```
 
 ### 🔍 Get Task Data
@@ -92,24 +79,29 @@ console.log(userAgent)
 ```javascript
 import DatadomeSDK from "parallaxapis-sdk-ts";
 
-const sdk = new DatadomeSDK({ apiKey: "key" });
+const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 const [taskData, productType] = sdk.parseChallengeUrl(
-    "https://geo.captcha-delivery.com/captcha/?initialCid=initialCid&cid=cid&referer=referer&hash=hash&t=t&s=s&e=e",
-    "cookie",
+    "https://www.example.com/captcha/?initialCid=initialCid&cid=cid&referer=referer&hash=hash&t=t&s=1&e=e",
+    "cookie_value",
 );
 
 console.log(taskData, productType)
+```
 
-/*
-    {
-        cid: "cookie",
-        b: "",
-        e: "e",
-        s: "s",
-        initialCid: "initialCid",
-    } captcha
-*/
+### 📄 Parse HTML Challenge
+
+```javascript
+import DatadomeSDK from "parallaxapis-sdk-ts";
+
+const sdk = new DatadomeSDK({ apiKey: "Key" });
+
+const htmlBody = "<html><script>dd={example:1}</script></html>";
+const prevCookie = "cookie_value";
+
+const [taskData, productType] = sdk.parseChallengeHtml(htmlBody, prevCookie);
+
+console.log(taskData, productType);
 ```
 
 ### 🍪 Generate Cookie
@@ -117,16 +109,16 @@ console.log(taskData, productType)
 ```javascript
 import DatadomeSDK from "parallaxapis-sdk-ts";
 
-const sdk = new DatadomeSDK({ apiKey: "key" });
+const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 const [taskData, productType] = sdk.parseChallengeUrl(
-    "https://geo.captcha-delivery.com/captcha/?initialCid=initialCid&cid=cid&referer=referer&hash=hash&t=t&s=s&e=e",
-    "cookie",
+    "https://www.example.com/captcha/?initialCid=initialCid&cid=cid&referer=referer&hash=hash&t=t&s=1&e=e",
+    "cookie_value",
 );
 
 const cookie = await sdk.generateCookie({
-    site: "vinted",
-    region: "pl",
+    site: "site",
+    region: "com",
     data: taskData,
     pd: productType,
     proxy: "http://user:pas@addr:port",
@@ -134,14 +126,6 @@ const cookie = await sdk.generateCookie({
 });
 
 console.log(cookie);
-
-/*
-   {
-        error: false,
-        message: "datadome=cookie_value",
-        UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-    }
-*/
 ```
 
 ### 🏷️ Generate Datadome Tags Cookie
@@ -149,11 +133,11 @@ console.log(cookie);
 ```javascript
 import DatadomeSDK from "parallaxapis-sdk-ts";
 
-const sdk = new DatadomeSDK({ apiKey: "key" });
+const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 const cookie = await sdk.generateDatadomeTagsCookie({
-    site: "vinted",
-    region: "pl",
+    site: "site",
+    region: "com",
     data: {
         cid: "null"
     },
@@ -162,39 +146,6 @@ const cookie = await sdk.generateDatadomeTagsCookie({
 });
 
 console.log(cookie);
-
-/*
-   {
-        error: false,
-        message: "datadome=cookie_value",
-        UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
-    }
-*/
-```
-
-### 📄 Parse HTML Challenge
-
-```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
-
-const sdk = new DatadomeSDK({ apiKey: "key" });
-
-const htmlBody = `<html>... dd={'cid':'abc123','s':12345,'e':'error','t':'fe'} ...</html>`;
-const prevCookie = "old_cookie_value";
-
-const [taskData, productType] = sdk.parseChallengeHtml(htmlBody, prevCookie);
-
-console.log(taskData, productType);
-
-/*
-    {
-        cid: "old_cookie_value",
-        b: "",
-        e: "error",
-        s: "12345",
-        initialCid: "abc123",
-    } captcha
-*/
 ```
 
 ### 🔎 Detect and Parse Challenge
@@ -202,24 +153,14 @@ console.log(taskData, productType);
 ```javascript
 import DatadomeSDK from "parallaxapis-sdk-ts";
 
-const sdk = new DatadomeSDK({ apiKey: "key" });
+const sdk = new DatadomeSDK({ apiKey: "Key" });
 
-const responseBody = `<html>... dd={'cid':'abc123','s':12345,'e':'error','t':'fe'} ...</html>`;
-const prevCookie = "old_cookie_value";
+const responseBody =  "<html>...</html>" // Response body from website
+const prevCookie = "cookie_value";
 
 const [isBlocked, taskData, productType] = sdk.detectChallengeAndParse(responseBody, prevCookie);
 
 console.log(isBlocked, taskData, productType);
-
-/*
-    true {
-        cid: "old_cookie_value",
-        b: "",
-        e: "error",
-        s: "12345",
-        initialCid: "abc123",
-    } captcha
-*/
 ```
 
 ---
