@@ -33,6 +33,8 @@ Get started with ParallaxAPIs SDK's in under 5 minutes:
 npm install parallaxapis-sdk-ts
 ```
 
+![NPM Install Demo](npminstallts.gif)
+
 ---
 
 ## 🧑‍💻 Datadome Usage
