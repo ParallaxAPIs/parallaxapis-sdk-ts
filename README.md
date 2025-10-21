@@ -128,7 +128,7 @@ const cookie = await sdk.generateCookie({
 console.log(cookie);
 ```
 
-### 🏷️ Generate Datadome Tags Cookie
+### 🏷️ Generate Tags Cookie
 
 ```javascript
 import DatadomeSDK from "parallaxapis-sdk-ts";
@@ -173,16 +173,16 @@ console.log(isBlocked, taskData, productType);
 import PerimeterxSDK from "parallaxapis-sdk-ts";
 
 // Basic initialization with API key
-const sdk = new PerimeterxSDK({ apiKey: "key" });
+const sdk = new PerimeterxSDK({ apiKey: "Key" });
 
 // Custom host
-const sdk = new PerimeterxSDK({ apiKey: "key", apiHost: "example.host.com" });
+const sdk = new PerimeterxSDK({ apiKey: "Key", apiHost: "example.host.com" });
 
 // Advanced configuration with timeouts and custom dispatcher
 import { ProxyAgent } from "undici";
 
 const sdk = new PerimeterxSDK({
-    apiKey: "key",
+    apiKey: "Key",
     timeout: 30000,              // Request timeout in milliseconds (default: none)
     bodyTimeout: 10000,          // Body timeout in milliseconds (default: none)
     dispatcher: new ProxyAgent("http://proxy:port")  // Custom undici dispatcher (optional)
@@ -196,56 +196,26 @@ import PerimeterxSDK from "parallaxapis-sdk-ts";
 import type { TaskGenerateHoldCaptcha, TaskGeneratePXCookies } from "parallaxapis-sdk-ts";
 
 const sdk = new PerimeterxSDK({
-    apiKey: "key",
+    apiKey: "Key",
 });
 
 const result = await sdk.generateCookies({
     proxy: "http://user:pas@addr:port",
     proxyregion: "eu",
     region: "com",
-    site: "stockx"
+    site: "site"
 } satisfies TaskGeneratePXCookies);
 
 console.log(JSON.stringify(result))
 
-/*
-    {
-        "error": false,
-        "cookie": "_px3=d3sswjaltwxgAd...",
-        "vid": "514d7e11-6962-11f0-810f-88cc16043287",
-        "cts": "514d8e28-6962-11f0-810f-51b6xf2786b0",
-        "secHeader": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
-        "isFlagged": false,
-        "isMaybeFlagged": true,
-        "UserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "data": "==WlrBti6vpO6rshP1CFtBsiocoO8..."
-    }
-*/
 
 const holdCaptchaResult = await sdk.generateHoldCaptcha({
     proxy: "http://user:pas@addr:port",
     proxyregion: "eu",
     region: "com",
-    site: "stockx",
+    site: "site",
     data: result.data,
 } satisfies TaskGenerateHoldCaptcha);
-
-console.log(JSON.stringify(holdCaptchaResult))
-
-/*
-    {
-        "error": false,
-        "cookie": "_px3=d3sswjaltwxgAd...",
-        "vid": "514d7e11-6962-11f0-810f-88cc16043287",
-        "cts": "514d8e28-6962-11f0-810f-51b6xf2786b0",
-        "secHeader": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
-        "isFlagged": false,
-        "isMaybeFlagged": true,
-        "UserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
-        "data": "==WlrBti6vpO6rshP1CFtBsiocoO8...", 
-        "flaggedPOW": false 
-    }
-*/
 ```
 
 ---
