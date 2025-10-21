@@ -216,6 +216,8 @@ const holdCaptchaResult = await sdk.generateHoldCaptcha({
     site: "site",
     data: result.data,
 } satisfies TaskGenerateHoldCaptcha);
+
+console.log(JSON.stringify(holdCaptchaResult))
 ```
 
 ---
