@@ -9,7 +9,7 @@ ParallaxAPIs provides a **request-based solution** for bypassing DataDome and Pe
 **What We Solve:**
 
 - ✅ **DataDome** - Slider captchas, interstitial pages, cookie generation, tags payload
-- ✅ **PerimeterX** - Cookie generation (_px3), challenge solver, vid & cts tokens
+- ✅ **PerimeterX** - Cookie generation (\_px3), challenge solver, vid & cts tokens
 
 **Key Benefits:**
 
@@ -49,7 +49,7 @@ npm install parallaxapis-sdk-ts
 ### ⚡ SDK Initialization
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 // Basic initialization with API key
 const sdk = new DatadomeSDK({ apiKey: "Key" });
@@ -71,13 +71,13 @@ const sdk = new DatadomeSDK({
 ### 🕵️‍♂️ Generate New User Agent
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 const userAgent = await sdk.generateUserAgent({
   region: "com",
-  site: "site"
+  site: "site",
 });
 
 console.log(userAgent);
@@ -86,7 +86,7 @@ console.log(userAgent);
 ### 🔍 Get Task Data
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
@@ -101,7 +101,7 @@ console.log(taskData, productType);
 ### 📄 Parse HTML Challenge
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
@@ -116,7 +116,7 @@ console.log(taskData, productType);
 ### 🍪 Generate Cookie
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
@@ -140,7 +140,7 @@ console.log(cookie);
 ### 🏷️ Generate Tags Cookie
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
@@ -160,7 +160,7 @@ console.log(cookie);
 ### 🔎 Detect and Parse Challenge
 
 ```javascript
-import DatadomeSDK from "parallaxapis-sdk-ts";
+import { DatadomeSDK } from "parallaxapis-sdk-ts";
 
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
@@ -182,7 +182,7 @@ console.log(isBlocked, taskData, productType);
 ### ⚡ SDK Initialization
 
 ```javascript
-import PerimeterxSDK from "parallaxapis-sdk-ts";
+import { PerimeterxSDK } from "parallaxapis-sdk-ts";
 
 // Basic initialization with API key
 const sdk = new PerimeterxSDK({ apiKey: "Key" });
@@ -204,7 +204,7 @@ const sdk = new PerimeterxSDK({
 ### 🍪 Generate PX Cookie
 
 ```javascript
-import PerimeterxSDK from "parallaxapis-sdk-ts";
+import { PerimeterxSDK } from "parallaxapis-sdk-ts";
 import type { TaskGenerateHoldCaptcha, TaskGeneratePXCookies } from "parallaxapis-sdk-ts";
 
 const sdk = new PerimeterxSDK({

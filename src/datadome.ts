@@ -33,7 +33,7 @@ export enum TTags {
   T_IT = "it",
 }
 
-export default class DatadomeSDK extends ApiClient {
+export class DatadomeSDK extends ApiClient {
   /**
    * Creates an instance of DatadomeSDK.
    * Sets the API host to the default if not provided in the config.

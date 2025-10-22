@@ -10,7 +10,7 @@ import {
   type TaskGeneratePXCookies,
 } from "./tasks";
 
-export default class PerimeterxSDK extends ApiClient {
+export class PerimeterxSDK extends ApiClient {
   /**
    * Creates an instance of PerimeterxSDK.
    * Sets the API host to the default if not provided in the config.
