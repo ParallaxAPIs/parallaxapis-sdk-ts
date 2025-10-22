@@ -9,7 +9,7 @@ ParallaxAPIs provides a **request-based solution** for bypassing DataDome and Pe
 **What We Solve:**
 
 - ✅ **DataDome** - Slider captchas, interstitial pages, cookie generation, tags payload
-- ✅ **PerimeterX** - Cookie generation (\_px3), challenge solver, vid & cts tokens
+- ✅ **PerimeterX** - Cookie generation (_px3), challenge solver, vid & cts tokens
 
 **Key Benefits:**
 
