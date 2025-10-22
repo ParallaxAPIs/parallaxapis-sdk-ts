@@ -21,11 +21,11 @@ import {
 const datadomeBlockUrlRe =
   /geo\.captcha\-delivery\.com\/(?:interstitial|captcha)/;
 // Datadome script object regexp
-const datadomeHtmlScriptRe = /dd=\{[^}]+\}/;
+const datadomeHtmlScriptRe = /dd=\{[^}]+\}/g;
 // Regexp for single quoted keys, like 'key':...
-const singleQuotedKeyRe = /'((?:[^'\\]|\\.)*)'\s*:/;
+const singleQuotedKeyRe = /'((?:[^'\\]|\\.)*)'\s*:/g;
 // Regexp for single quoted values, like ...:'value':
-const singleQuotedValueRe = /:\s*'([^'\\]*(?:\\.[^'\\]*)*)'/;
+const singleQuotedValueRe = /:\s*'([^'\\]*(?:\\.[^'\\]*)*)'/g;
 
 export enum TTags {
   T_BV = "bv",
@@ -33,7 +33,7 @@ export enum TTags {
   T_IT = "it",
 }
 
-export class DatadomeSDK extends ApiClient {
+export default class DatadomeSDK extends ApiClient {
   /**
    * Creates an instance of DatadomeSDK.
    * Sets the API host to the default if not provided in the config.
@@ -76,17 +76,14 @@ export class DatadomeSDK extends ApiClient {
   ): [TaskGenerateDatadomeCookieData, ProductType] {
     const url = new URL(challengeUrl);
 
-    const resultTouple: [TaskGenerateDatadomeCookieData, ProductType] = [
-      {} as TaskGenerateDatadomeCookieData,
-      ProductType.Init,
-    ];
+    let pd: ProductType;
 
     if (url.pathname.startsWith("/captcha")) {
-      resultTouple[1] = ProductType.Captcha;
+      pd = ProductType.Captcha;
     } else if (url.pathname.startsWith("/interstitial")) {
-      resultTouple[1] = ProductType.Interstitial;
+      pd = ProductType.Interstitial;
     } else if (url.pathname.startsWith("/init")) {
-      resultTouple[1] = ProductType.Init;
+      pd = ProductType.Init;
     } else throw new Error("unknown challenge type in URL");
 
     const params = new URLSearchParams(challengeUrl.split("?")[1]);
@@ -99,9 +96,7 @@ export class DatadomeSDK extends ApiClient {
       initialCid: params.get("initialCid") || "",
     };
 
-    resultTouple[0] = taskData;
-
-    return resultTouple;
+    return [taskData, pd];
   }
 
   /**
@@ -161,12 +156,13 @@ export class DatadomeSDK extends ApiClient {
 
     let objStr = match[0].slice(3); // skip 'dd='
 
-    objStr = objStr.replace(singleQuotedKeyRe, '"$1":');
-    objStr = objStr.replace(singleQuotedValueRe, ':"$1"');
+    objStr = objStr.replaceAll(singleQuotedKeyRe, '"$1":');
+    objStr = objStr.replaceAll(singleQuotedValueRe, ':"$1"');
 
     let dd: HtmlDatadomeBlockBody;
 
     try {
+      console.log(objStr);
       dd = JSON.parse(objStr);
     } catch {
       throw new Error("no DataDome values in HTML body");
