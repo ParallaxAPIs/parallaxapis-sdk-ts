@@ -1,4 +1,4 @@
-# 🚀 ParallaxAPIs TypeScript SDK: Datadome & Perimeterx
+# <img src="logo.png" alt="Parallax Logo" width="30" height="30" style="vertical-align: middle;"> ParallaxAPIs TypeScript SDK: Datadome & PerimeterX
 
 **TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
 
