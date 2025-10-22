@@ -14,7 +14,9 @@
     "README.md",
     "LICENSE",
     "tsup.config.ts",
-    "tsconfig.json"
+    "tsconfig.json",
+    "logo.png",
+    "npminstallts.gif"
   ],
   "scripts": {
     "build": "tsup"
