@@ -145,8 +145,8 @@ import DatadomeSDK from "parallaxapis-sdk-ts";
 const sdk = new DatadomeSDK({ apiKey: "Key" });
 
 const cookie = await sdk.generateDatadomeTagsCookie({
-  site: "vinted",
-  region: "pl",
+  site: "site",
+  region: "com",
   data: {
     cid: "null",
   },
