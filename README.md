@@ -1,4 +1,4 @@
-# <img src="logo.png" alt="Parallax Logo" width="30" height="30" style="vertical-align: middle;"> ParallaxAPIs TypeScript SDK: Datadome & PerimeterX
+# <img src="https://github.com/ParallaxAPIs/.github/blob/main/profile/logo.png" alt="Parallax Logo" width="30" height="30" style="vertical-align: middle;"> ParallaxAPIs TypeScript SDK: Datadome & PerimeterX
 
 **TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
 
@@ -40,7 +40,7 @@ Get started with ParallaxAPIs SDK's in under 5 minutes:
 npm install parallaxapis-sdk-ts
 ```
 
-![NPM Install Demo](npminstallts.gif)
+![NPM Install Demo](https://github.com/ParallaxAPIs/.github/blob/main/profile/npminstallts.gif)
 
 ---
 
