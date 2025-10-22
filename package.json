@@ -3,8 +3,8 @@
   "version": "1.0.4",
   "description": "ParallaxAPIs SDK",
   "homepage": "https://www.parallaxsystems.io/join?s=npm",
-  "repository": "https://github.com/ParallaxAPIs/parallax-sdk-ts",
-  "author": "ParallaxSystems <luca@parallaxsystems.io>",
+  "repository": "https://github.com/ParallaxAPIs/parallaxapis-sdk-ts",
+  "author": "ParallaxSystems <info@parallaxsystems.io>",
   "license": "MIT",
   "type": "module",
   "main": "src/index.ts",
@@ -14,9 +14,7 @@
     "README.md",
     "LICENSE",
     "tsup.config.ts",
-    "tsconfig.json",
-    "logo.png",
-    "npminstallts.gif"
+    "tsconfig.json"
   ],
   "scripts": {
     "build": "tsup"
