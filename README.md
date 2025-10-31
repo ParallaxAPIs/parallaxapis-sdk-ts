@@ -68,6 +68,9 @@ const sdk = new DatadomeSDK({
     requestTls: { rejectUnauthorized: false }
   }) // Custom undici dispatcher (optional)
 });
+
+const usedRequests = await sdk.checkUsage("site")
+console.log(usedRequests);
 ```
 
 ### 🕵️‍♂️ Generate New User Agent
@@ -203,6 +206,9 @@ const sdk = new PerimeterxSDK({
     requestTls: { rejectUnauthorized: false }
   }) // Custom undici dispatcher (optional)
 });
+
+const usedRequests = await sdk.checkUsage("site")
+console.log(usedRequests);
 ```
 
 ### 🍪 Generate PX Cookie
