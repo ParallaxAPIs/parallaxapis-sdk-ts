@@ -41,7 +41,6 @@ export class ApiClient {
       method: "POST",
       body: JSON.stringify(payload),
       headers: { "content-type": "application/json" },
-      throwOnError: false,
     };
 
     const res = await request(url, options);
@@ -71,10 +70,7 @@ export class ApiClient {
    */
   public async checkUsage(site: string): Promise<ResponseGetUsage> {
     const res = await request(
-      `https://${this.apiHost}/usage?authToken=${this.apiKey}&site=${site}`,
-      {
-        throwOnError: false,
-      },
+      `https://${this.apiHost}/usage?authToken=${this.apiKey}&site=${site}`
     );
 
     const resBody = (await res.body.json()) as ResponseGetUsage;
