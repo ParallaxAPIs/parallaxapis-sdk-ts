@@ -64,9 +64,7 @@ const sdk = new DatadomeSDK({
   apiKey: "Key",
   timeout: 30000, // Request timeout in milliseconds (default: none) (optional)
   bodyTimeout: 10000, // Body timeout in milliseconds (default: none) (optional)
-  dispatcher: new ProxyAgent("http://proxy:port", {
-    requestTls: { rejectUnauthorized: false }
-  }) // Custom undici dispatcher (optional)
+  dispatcher: new ProxyAgent("http://proxy:port"), // Custom undici dispatcher (optional)
 });
 ```
 
@@ -199,9 +197,7 @@ const sdk = new PerimeterxSDK({
   apiKey: "Key",
   timeout: 30000, // Request timeout in milliseconds (default: none)
   bodyTimeout: 10000, // Body timeout in milliseconds (default: none)
-  dispatcher: new ProxyAgent("http://proxy:port", {
-    requestTls: { rejectUnauthorized: false }
-  }) // Custom undici dispatcher (optional)
+  dispatcher: new ProxyAgent("http://proxy:port"), // Custom undici dispatcher (optional)
 });
 ```
 
