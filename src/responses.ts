@@ -14,7 +14,7 @@ export type GenericResponse<T> = T & {
 
 export type ResponseGetUsage = {
     readonly usedRequests: string,
-    readonly leftRequests: number,
+    readonly requestsLeft: number,
 }
 
 
