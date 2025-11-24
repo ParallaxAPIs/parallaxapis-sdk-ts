@@ -7,6 +7,7 @@ export type Endpoint = `/${string}`;
 
 export class ApiClient {
   private apiHost = "";
+  private protocol: "http" | "https";
   private apiKey = "";
   private requestOptions: Parameters<typeof request>[1];
 
@@ -16,6 +17,11 @@ export class ApiClient {
    */
   constructor(cfg: ApiClientConfig) {
     this.apiHost = cfg.apiHost;
+
+    this.protocol = "https";
+    if (cfg.apiHost.startsWith("127."))
+      this.protocol = "http";
+
     this.apiKey = cfg.apiKey;
 
     this.requestOptions = {};
@@ -29,7 +35,7 @@ export class ApiClient {
     endpoint: Endpoint,
     body: TBody,
   ): Promise<T> {
-    const url = `https://${this.apiHost}${endpoint}`;
+    const url = `${this.protocol}://${this.apiHost}${endpoint}`;
 
     const payload: GenericTask<TBody> = {
       auth: this.apiKey,
@@ -70,7 +76,7 @@ export class ApiClient {
    */
   public async checkUsage(site: string): Promise<ResponseGetUsage> {
     const res = await request(
-      `https://${this.apiHost}/usage?authToken=${this.apiKey}&site=${site}`
+      `${this.protocol}://${this.apiHost}/usage?authToken=${this.apiKey}&site=${site}`
     );
 
     const resBody = (await res.body.json()) as ResponseGetUsage;
