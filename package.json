@@ -1,6 +1,6 @@
 {
   "name": "parallaxapis-sdk-ts",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "ParallaxAPIs SDK",
   "homepage": "https://www.parallaxsystems.io/join?s=npm",
   "repository": "https://github.com/ParallaxAPIs/parallaxapis-sdk-ts",
