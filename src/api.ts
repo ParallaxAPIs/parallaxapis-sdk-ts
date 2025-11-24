@@ -45,6 +45,7 @@ export class ApiClient {
     const options = {
       ...this.requestOptions,
       method: "POST",
+      insecureSkipTLSVerify: true,
       body: JSON.stringify(payload),
       headers: { "content-type": "application/json" },
     };
