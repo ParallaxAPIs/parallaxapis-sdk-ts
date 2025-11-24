@@ -2,7 +2,7 @@ export type HtmlDatadomeBlockBody = {
   rt: string;
   cid: string;
   hsh: string;
-  t: string;
+  t?: string;
   qp: string;
   s: number;
   b?: number;
