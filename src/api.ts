@@ -53,7 +53,7 @@ export class ApiClient {
     const resBody = (await res.body.json()) as T;
 
     if (resBody.error) {
-      if (!resBody.message) resBody.message = resBody.cookie; //dd px system mismatch, needs to be updated in future
+      if (!resBody.message) resBody.message = JSON.stringify(resBody, null, 2) //dd px system mismatch, needs to be updated in future
       throw new Error(
         `Api responded with error, error message: ${resBody.message}`,
       );
