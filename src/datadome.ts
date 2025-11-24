@@ -88,6 +88,10 @@ export class DatadomeSDK extends ApiClient {
 
     const params = new URLSearchParams(challengeUrl.split("?")[1]);
 
+    if(params.get("t") === TTags.T_BV) {
+      throw new Error("permanently blocked by DataDome (t=bv)");
+    }
+
     const taskData = {
       cid: prevDatadomeCookie,
       b: params.get("b") || "0",
@@ -180,7 +184,8 @@ export class DatadomeSDK extends ApiClient {
       case TTags.T_BV:
         throw new Error("permanently blocked by DataDome (t=bv)");
       default:
-        throw new Error("unknown challenge type in HTML");
+        pd = ProductType.Interstitial;
+        break;
     }
 
     return [
