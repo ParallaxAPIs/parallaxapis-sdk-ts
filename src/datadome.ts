@@ -93,7 +93,7 @@ export class DatadomeSDK extends ApiClient {
     }
 
     const taskData = {
-      cid: prevDatadomeCookie,
+      cid: prevDatadomeCookie.length > 0 ? prevDatadomeCookie : params.get("cid") || "",
       b: params.get("b") || "0",
       e: params.get("e") || "",
       s: params.get("s") || "",
@@ -166,7 +166,6 @@ export class DatadomeSDK extends ApiClient {
     let dd: HtmlDatadomeBlockBody;
 
     try {
-      console.log(objStr);
       dd = JSON.parse(objStr);
     } catch {
       throw new Error("no DataDome values in HTML body");
@@ -193,7 +192,7 @@ export class DatadomeSDK extends ApiClient {
         b: dd.b?.toString() || "",
         s: dd.s.toString(),
         e: dd.e,
-        cid: prevDatadomeCookie,
+        cid: prevDatadomeCookie.length > 0 ? prevDatadomeCookie : dd.cid,
         initialCid: dd.cid,
       },
       pd,
