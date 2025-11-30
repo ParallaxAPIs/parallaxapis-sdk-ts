@@ -1,7 +1,7 @@
 # <img src="https://github.com/ParallaxAPIs/.github/blob/main/profile/logo.png" alt="Parallax Logo" width="30" height="30" style="vertical-align: middle;"> ParallaxAPIs SDK - TypeScript Library for Bot Protection Bypass (Datadome & PerimeterX)
 
 
-![license MIT](https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen&labelColor=99cc33) ![Node.js version](https://img.shields.io/static/v1?label=Node.js&message=17%2B&color=007ec6&labelColor=555555) ![downloads](https://img.shields.io/static/v1?label=downloads&message=1.2k%2Fmonth&color=99cc33&labelColor=111111)
+![license MIT](https://img.shields.io/static/v1?label=license&message=MIT&color=99cc33&labelColor=111111) ![Node.js version](https://img.shields.io/static/v1?label=Node.js&message=17%2B&color=007ec6&labelColor=555555) ![downloads](https://img.shields.io/static/v1?label=downloads&message=1.2k%2Fmonth&color=brightgreen&labelColor=111111)
 
 [![Discord](https://img.shields.io/static/v1?label=ParallaxAPIs&message=1.870%20Members&color=111111&labelColor=5865F2&style=for-the-badge&logo=discord&logoColor=white)](https://www.parallaxsystems.io/join?s=gh)
 
