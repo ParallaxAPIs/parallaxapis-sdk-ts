@@ -2,6 +2,7 @@
 
 
 ![license MIT](https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen&labelColor=555555) ![Node.js version](https://img.shields.io/static/v1?label=Node.js&message=17%2B&color=007ec6&labelColor=555555) ![downloads](https://img.shields.io/static/v1?label=downloads&message=1.2k%2Fmonth&color=brightgreen&labelColor=555555)
+
 [![Discord](https://img.shields.io/static/v1?label=ParallaxAPIs&message=1.870%20Members&color=111111&labelColor=5865F2&style=for-the-badge&logo=discord&logoColor=white)](https://www.parallaxsystems.io/join?s=gh)
 
 **TypeScript SDK for bypassing DataDome and PerimeterX anti-bot protection.**
