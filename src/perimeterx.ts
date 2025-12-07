@@ -35,7 +35,7 @@ export class PerimeterxSDK extends ApiClient {
   public async generateCookies(
     task: TaskGeneratePXCookies,
   ): Promise<GeneratePxCookiesResponse> {
-    return await this.request("/gen", task);
+    return await this.request<GeneratePxCookiesResponse, TaskGeneratePXCookies>("/gen", task);
   }
 
   /**
@@ -47,6 +47,6 @@ export class PerimeterxSDK extends ApiClient {
   public async generateHoldCaptcha(
     task: TaskGenerateHoldCaptcha,
   ): Promise<GenerateHoldCaptchaResponse> {
-    return await this.request("/holdcaptcha", task);
+    return await this.request<GenerateHoldCaptchaResponse, TaskGenerateHoldCaptcha>("/holdcaptcha", task);
   }
 }

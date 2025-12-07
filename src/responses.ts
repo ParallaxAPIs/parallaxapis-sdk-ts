@@ -32,13 +32,20 @@ export type GenerateDatadomeCookieResponse = GenericResponse<{
 }>
 
 export type GeneratePxCookiesResponse = GenericResponse<{
-    readonly cookie: string,
+    readonly cookie: string
     readonly vid: string
-    readonly cts: string
-    readonly isFlagged: boolean
-    readonly isMaybeFlagged: boolean
     readonly UserAgent: string
     readonly data: string
+
+    // desktop-specific – may be missing on mobile
+    readonly cts?: string
+    readonly isFlagged?: boolean
+    readonly isMaybeFlagged?: boolean
+
+    // mobile-specific – missing on desktop
+    readonly uuid?: string
+    readonly model?: string
+    readonly device_fp?: string
 }>
 
 
