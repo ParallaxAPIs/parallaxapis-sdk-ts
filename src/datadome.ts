@@ -88,12 +88,12 @@ export class DatadomeSDK extends ApiClient {
 
     const params = new URLSearchParams(challengeUrl.split("?")[1]);
 
-    if(params.get("t") === TTags.T_BV) {
+    if (params.get("t") === TTags.T_BV) {
       throw new Error("permanently blocked by DataDome (t=bv)");
     }
 
     const taskData = {
-      cid: prevDatadomeCookie.length > 0 ? prevDatadomeCookie : params.get("cid") || "",
+      cid: params.get("cid") ? params.get("cid") || "" : prevDatadomeCookie,
       b: params.get("b") || "0",
       e: params.get("e") || "",
       s: params.get("s") || "",
@@ -192,7 +192,7 @@ export class DatadomeSDK extends ApiClient {
         b: dd.b?.toString() || "",
         s: dd.s.toString(),
         e: dd.e,
-        cid: prevDatadomeCookie.length > 0 ? prevDatadomeCookie : dd.cid,
+        cid: dd.cookie ? dd.cookie : prevDatadomeCookie,
         initialCid: dd.cid,
       },
       pd,
